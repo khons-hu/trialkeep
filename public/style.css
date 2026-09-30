@@ -3,3 +3,55 @@
 
 /* Motion preference: System follows the OS. On and Off are explicit visitor choices. */
 .motion-control{white-space:nowrap;font-size:11px!important}.motion-off *,.motion-off *::before,.motion-off *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}@media(prefers-reduced-motion:reduce){html:not(.motion-force-on){scroll-behavior:auto}html:not(.motion-force-on) *,html:not(.motion-force-on) *::before,html:not(.motion-force-on) *::after{animation:none!important;transition:none!important}}
+
+/* ---------- Moonlit family: the current khns.dev look ----------
+   Warm paper and midnight palettes, Avenir and Georgia from the portfolio, sans labels, pill buttons and tabs,
+   8px fields, 16px lit panels and a glass header. Trialkeep keeps its warm accent for the title word and notes. */
+:root{--bg:#090f16;--panel:#0e1721;--soft:#142131;--ink:#e3e9ef;--muted:#98a7b7;--line:#1f2d3a;--line-strong:#33485b;--field:#070c12;--raised:#0f1923;--accent:#afcee3;--on-accent:#08111a;--rim:rgba(207,227,240,.1);--glass:rgba(9,15,22,.74);--lift:0 30px 90px rgba(0,0,0,.55);--serif:Georgia,'Times New Roman',serif;--sans:'Avenir Next',Avenir,'Segoe UI',system-ui,-apple-system,Roboto,'Helvetica Neue',sans-serif;--mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+html[data-theme=light]{--bg:#e9e6df;--panel:#f2efe9;--soft:#e4e0d7;--ink:#172430;--muted:#4c5966;--line:#d4cfc4;--line-strong:#b3ac9e;--field:#fbfaf7;--raised:#f3f0ea;--accent:#2b5a78;--on-accent:#f7f5f0;--rim:rgba(255,255,255,.95);--glass:rgba(233,230,223,.8);--lift:0 26px 70px rgba(45,38,24,.2)}
+body{font-size:15px}
+:focus-visible{outline-color:var(--accent);outline-offset:3px}
+::selection{background:#52738b;color:#fff}
+
+/* Header: glass across the full width once the page scrolls under it; content stays in the page column. */
+header{position:sticky;top:0;z-index:20;max-width:none;height:76px;padding:0 max(32px,calc((100% - 1096px) / 2));background:var(--glass);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
+html{scroll-padding-top:96px}
+.brand{font-size:21px;font-weight:600;letter-spacing:-.02em}
+.brand span{font:500 10px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+#theme{width:38px;height:38px;min-height:38px;padding:0;border-radius:50%;display:inline-grid;place-items:center;font-size:20px;line-height:1;margin-left:auto}
+#theme span{display:none}
+.skip{z-index:30}
+
+/* Type: one Georgia title with the warm italic word, sans section headings, small uppercase sans labels. */
+h1{font:400 clamp(48px,6.6vw,84px)/1.04 var(--serif);letter-spacing:-.04em}
+em{font-style:italic}
+h2{font-weight:400;letter-spacing:-.03em}
+.eyebrow{font:500 11px/1.8 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.intro .eyebrow::before{content:"";display:inline-block;width:9px;height:9px;margin-inline-end:11px;border-radius:50%;vertical-align:-.5px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 55%,transparent),inset -4px 0 0 0 var(--accent)}
+footer{font:13px/1.6 var(--sans)}
+footer a{text-decoration:underline;text-decoration-color:var(--line-strong);text-decoration-thickness:1px}
+footer a:hover{text-decoration-color:var(--accent)}
+
+/* Controls: outline pills, 8px fields; the tabs sit together in one track with the current one filled. */
+button,.file{border-color:var(--line-strong);border-radius:999px;background:transparent;padding:10px 17px}
+button:hover,.file:hover{background:var(--soft)}
+input,textarea,select{border-color:var(--line-strong);border-radius:8px;background:var(--field)}
+select{-webkit-appearance:none;appearance:none;padding-right:34px;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 18px) 52%,calc(100% - 13px) 52%;background-size:5px 5px;background-repeat:no-repeat;cursor:pointer}
+select option{color:#111;background:#fff}
+.file input{background:none;border-radius:0}
+.tabs{width:fit-content;max-width:100%;gap:2px;padding:4px;border:1px solid var(--line);border-radius:26px;background:var(--panel);box-shadow:inset 0 1px 0 var(--rim)}
+.tabs a{padding:8px 15px;border-radius:999px;font:500 13px var(--sans);color:var(--muted)}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current=page]{background:var(--accent);color:var(--on-accent);border-radius:999px}
+.motion-control{color:var(--muted)}
+.motion-control:hover{color:var(--ink)}
+
+/* Panels, tiles and dialogs: 16px corners lit along the top edge. */
+.empty,.arena{border-radius:16px;box-shadow:inset 0 1px 0 var(--rim)}
+.stat,pre{border-radius:12px}
+.arena dialog{border-color:var(--line-strong);border-radius:16px;background:var(--raised);box-shadow:var(--lift),inset 0 1px 0 var(--rim)}
+.arena dialog::backdrop{background:rgba(3,7,11,.62)}
+
+/* Phones: the header scrolls with the page; the tabs become separate pills in two columns. */
+@media(max-width:760px){header{position:static}html{scroll-padding-top:0}}
+@media(max-width:650px){header{height:auto;min-height:72px;padding:12px 20px}.tabs{width:auto;padding:0;border:0;background:none;box-shadow:none;gap:6px}.tabs a{border:1px solid var(--line);text-align:center}.tabs a[aria-current=page]{border-color:var(--accent)}}
