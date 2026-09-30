@@ -1,6 +1,6 @@
-# Khonproof
+# Trialkeep
 
-[Open the lab ↗](https://khonproof.vercel.app/)
+[View source ↗](https://github.com/khons-hu/trialkeep)
 
 Fast is nice. Did it work?
 
@@ -62,3 +62,5 @@ The site processes imports and drafts in your browser. Only the theme preference
 Vercel builds the static `dist/` directory. Local `.env` and reports are excluded. GitHub Actions runs offline tests and the static build. MIT licensed.
 
 A scheduled GitHub Actions smoke check runs daily at 06:30 UTC without model calls. Reports are kept as workflow artifacts for 14 days. The report bundled with the website is a dated snapshot, not a live status service.
+
+The published benchmark report and browser-course task set keep their original project names. They are recorded evidence, so the rebrand does not change the tasks or reported results. Browser preferences keep their existing storage keys.
